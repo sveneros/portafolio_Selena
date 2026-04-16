@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <meta name="description" content="Portafolio de Selena Veneros, desarrolladora de software especializada en sistemas Web. Proyectos destacados, habilidades técnicas y contacto." />
+    <meta name="keywords" content="Selena Veneros, desarrolladora, software, Web, PHP, Python, C#, JavaScript" />
+    <meta name="author" content="Selena Leonor Veneros" />
+    <meta property="og:title" content="Portafolio de Selena Veneros" />
+    <meta property="og:description" content="Descubre los proyectos y habilidades de Selena Veneros, una apasionada desarrolladora de software con experiencia en diversas tecnologías." />   
+
     <title>Mi Portafolio</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -15,7 +22,7 @@
                  <ul>
                         <li><a href="#inicio">Inicio</a></li>
                          <li><a href="#acercade">Acerca de</a></li>
-                         <li><a href="#servicios">Servicios</a></li>
+                         <li><a href="#servicios">Mis Proyectos</a></li>
                         <li><a href="#contacto">Contacto</a></li>   
                   </ul>
                </nav>
@@ -28,26 +35,92 @@
         <section id="inicio">
             <div class="container person">
                 <div class="person-content">
-                <h1>Hola soy Selena Veneros</h1>
-                <p>Desarrolladora software</p>
-                <a href="#contacto" class="btn">Contáctame</a>
+                <span class="person-badge">Disponible para proyectos</span>
+                <h1>Hola soy <br> <strong>Selena Veneros</strong> </h1>
+                <p>Desarrolladora software y Analista de datos, programadora especializada en soluciones modernas</p>
+                <div class="actions">
+                <a href="#servicios" class="btn btn--primary">Ver proyectos</a>
+                <a href="#contacto" class="btn btn--secondary">Contáctame</a>
+                </div>
+                <aside class="person-img" aria-hidden="true">
+                    <div class="float-card card--a">C# (.NET)</div>
+                    <div class="float-card card--b">SQL (MySQL)</div>
+                    <div class="float-card card--c">HTML / CSS</div>
+                    <div class="float-card card--d">JavaScript</div>
+                    <div class="float-card card--e">Python</div>
+                    <div class="avatar">
+                        <div class="avatar-interior">SV</div>
+                    </div>
+                    
+                    
+                </aside>
             </div>
+        </section>
 
         <section id="acercade">
             <div class="container about">
                 <h2>Acerca de mí</h2>
                 <p>Soy una apasionada ingeniera de sistemas con bases en C# y bases de datos. Me encanta aprender idiomas y combinar la tecnología con la creatividad.</p>
-            
-            <div class="lenguajes">
-                <h3>Lenguajes y herramientas que conozco:</h3>
-                <div class="item-1">C# (.NET)</div>
-                <div class="item-1">SQL (MySQL, PostgreSQL)</div>
-                <div class="item-1">HTML / CSS</div>
-                <div class="item-1">JavaScript</div>
-                <div class="item-1">Python (básico)</div>
-                <div class="item-1">Git y GitHub</div>
+                <div class="skill-card skill--backend">
+                    <article>
+                        <h3>Backend</h3>
+                        <ul>
+                            <li>Nodejs (nestjs, express)</li>
+
+                            <li>Php (laravel)</li>
+
+                            <li>Python (django)</li>
+
+                            <li>Java (spring)</li>
+
+                        </ul>
+                    </article>
+                
+
+                     
+
+                    <article class="skill-card skill--frontend">
+
+                            <h3>Frontend</h3>
+
+                            <ul>
+
+                                <li>JavaScript/typescript</li>
+
+                                <li>React</li>
+
+                                <li>Angular</li>
+
+                                <li>Vue</li>
+                          </ul>
+
+                    </article>
+
+                            <article class="skill-card skill--database" >
+                            <h3>Base de Datos</h3>
+
+                            <ul>
+
+                            <li>MySQL</li>
+
+                            <li>PostgreSQL</li>
+
+                            <li>MongoDB</li>
+
+                            </ul>
+                    </article>
+                </div>
+                <!-- <div class="lenguajes">
+                    <h3>Lenguajes y herramientas que conozco:</h3>
+                    <div class="item-1">C# (.NET)</div>
+                    <div class="item-1">SQL (MySQL)</div>
+                    <div class="item-1">HTML / CSS</div>
+                    <div class="item-1">JavaScript</div>
+                    <div class="item-1">Python (básico)</div>
+                    <div class="item-1">Git y GitHub</div>
+                </div>     -->
             </div>
-            
+            </section>
            <section id="servicios">
             <div class="container">
                 <h2 class="section-title">Proyectos Destacados</h2>
@@ -78,44 +151,171 @@
                         <span class="proyecto-badge">HealthTech</span>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+
         <section id="contacto">
             
             <div class="container contact">
-            <h2 class="section-title">Cantactenos</h2>
+                <h2 class="section-title">Cantácteme</h2>
+                <div class="contact-info">
+
+                    <div class="contact-item">
+
+                        <span class="contact-icon">📧</span>
+
+                        <div>
+
+                            <strong>Email</strong> 
+                            <p>tuemail@ejemplo.com</p>
+
+                        </div>
+                    </div>
+            
+                    <div class="contact-item">
+
+                        <span class="contact-icon">📍</span>
+
+                        <div>
+
+                            <strong>Direccion</strong> 
+                            <p>Calle nro 400, Zona Villa Copacabana, La Paz, Bolivia </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="contact-item">
+
+                     <span class="contact-icon">📞</span>
+
+                        <div>
+
+                            <strong>Respuesta</strong>
+
+                            <p>Menos de 48 horas</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            
+
             <div class="contact-form">
                 <form action="#" method="post">
                     <div class="form-group">
                         <label for="nombre">Nombre completo</label>
-                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre"/>
                     </div>
                     <div class="form-group">
                         <label for="email">Correo electrónico</label>
-                        <input type="email" id="email" name="email" required placeholder="tú@ejemplo.com">
+                        <input type="email" id="email" name="email" required placeholder="tú@ejemplo.com"/>
                     </div>
+
                     <div class="form-group">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntame sobre tu proyecto..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Enviar mensaje →</button>
-                </form>
-                <p style="margin-top: 1rem; font-size: 0.8rem; text-align: center; color: var(--text-secondary)">* Recibirás respuesta en menos de 48h.</p>
-            </div>
-        </div>
+
+                        <label for="presupuesto" >Presupuestos Estimado:</label> 
+                        <span class="rango-valor" id="rango-valor">$1,000 - $5,000 </span> 
+
+                        <input
+
+                        type="range"
+
+                        id="presupuesto"
+
+                        name="presupuesto"
+
+                        min="1000"
+
+                        max="5000"
+
+                        step="500"
+
+                        value="3000"
+                        />
+                        </div>
+
+                        <!-- <div class="form-group">
+
+                        <label for="tipo-proyecto">Tipo de proyecto:</label> 
+
+                        <input 
+                        type="search"
+                        id="servicio"
+                        name="servicio"
+                        placeholder="Selecciona un servicio"
+                        list="servicios">
+                        <datalist>
+                            <option value="Desarrollo Web"></option>
+                            <option value="Desarrollo Móvil"></option>
+                            <option value="Consultoría Técnica"></option>
+                            <option value="Mantenimiento y Soporte"></option>
+                        </datalist> -->
+
+                        <div class="form-group">
+                  <label for="servicio">Tipo de servicio</label>
+                  <input
+                    type="search"
+                    id="servicio"
+                    name="servicio"
+                    list="servicios-list"
+                    placeholder="Busca un servicio..."
+                  />
+                  <datalist id="servicios-list">
+                    <option value="Desarrollo Web Full Stack">
+                    <option value="API REST / Back-End">
+                    <option value="Diseño UI / Front-End">
+                    <option value="Base de Datos">
+                    <option value="Consultoría Técnica">
+                  </datalist>
+                </div>
  
-        
-        </section>
-        <p>Este es un sitio web de ejemplo para demostrar cómo se estructura un documento HTML. Que se realizó durante la clase.</p>
-    </main>
-     <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://github.com/selenaveneros" target="_blank">GitHub</a>
-                <a href="https://www.facebook.com/share/1CaVkSNmSg/" target="_blank">Facebook</a>
-            </div>
         </div>
-        <p>&copy; 2026 Mi Sitio Web. Todos los derechos reservados.</p>
+
+        <div class="form-group">
+
+                    <label for="mensaje">Mensaje</label>
+
+                    <textarea
+
+                        id="mensaje"
+
+                        name="mensaje"
+
+                        rows="4"
+
+                        required
+
+                        placeholder="Cuéntame sobre tu proyecto..."
+
+                    ></textarea>
+
+            </div>
+
+                <button type="submit" class="btn-submit">Enviar mensaje →</button>
+
+            </form>
+            <p>Recibirás una respuesta en menos de 48 hrs.</p>
+        </div>
+    </div>
+
+</section>
+
+        </main>
+        <footer>
+            <div class="container footer-grid">
+                <div class="footer-brand"></div>
+                    <span class="logo">Selena Veneros</span>
+                    <p>Desarrolladora Full Stack · La Paz, Bolivia</p>
+                </div>
+            <nav class="social-links">
+                <a href="https://github.com/sveneros" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/selenaveneros" target="_blank">LinkedIn</a>
+                <a href="https://www.facebook.com/selenaveneros" target="_blank">Facebook</a>
+            </nav>
+        </div>
+        <p class="footer-copy">&copy; 2026 Mi Sitio Web. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
