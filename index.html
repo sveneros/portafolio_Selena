@@ -64,7 +64,7 @@
                     Soy Selena Veneros, Ingeniera de Sistemas especializada en el desarrollo de soluciones tecnológicas innovadoras. 
                     Especializada en la creación de sistemas web escalables y análisis de datos para la toma de decisiones estratégicas.
                 </p>
-                <!--<div class="about-grid">
+                <div class="about-grid">
                  <div class="about-text">
                     <h3>Mi enfoque profesional</h3>
                     <p>
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                 </div> 
-            </div>-->
+            </div>
             
             
 
@@ -165,10 +165,18 @@
            <section id="servicios">
             <div class="container">
                 <h2 class="section-title">Proyectos Destacados</h2>
+                 <div class="filter-bar" role="group" aria-label="Filtrar proyectos">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="frontend">Front-End</button>
+            <button class="filter-btn" data-filter="backend">Back-End</button>
+            <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+        </div>
+        
+        <p class="projects-meta"><span id="project-count"></span> proyectos</p>
                 <!-- <p style="text-align: center; color: var(--text-secondary); margin-bottom: 20px;">Estos son algunos de mis proyectos más importantes</p> -->
                 
-                <div class="proyectos-grid">
-                    <div class="proyecto-card">
+                <div class="projects-grid" id="projects-grid">
+                    <!-- <div class="proyecto-card">
                         <div class="proyecto-emoji">🛒</div>
                         <div class="proyecto-titulo">Cotizaciones en línea</div>
                         <div class="proyecto-descripcion">
@@ -193,11 +201,60 @@
                             Brazalete sensor de pulso y glucosa. Los datos se envían a un sistema central que genera reportes y bloquea actividades riesgosas si los signos vitales están fuera de rango, previniendo problemas de salud durante actividades deportivas.
                         </div>
                         <span class="proyecto-badge">HealthTech</span>
+                    </div> -->
+                    <!-- <div class="filter-bar" role="group" aria-label="Filtrar proyects">
+                        <button class="filter-btn active" data-filter="all">Todos</button>
+                        <button class="filter-btn" data-filter="frontend">Front-End</button>
+                        <button class="filter-btn" data-filter="backend">Back-End</button>
+                        <button class="filter-btn" data-filter="fullstack">Full Stack</button>
                     </div>
+                    <p class="projects-meta"><span id="project-count"></span></p> 
+                    <div class="projects-grid" id="projects-grid"></div> -->
                 </div>
             </section>
-
-
+            
+<section id="apis" aria-label="Consumo de APIs públicas">
+<div class="container">
+<header class="section-header">
+<h2>APIs Públicas en Vivo</h2>
+<p>Ejemplos reales de Fetch API, <code>async/await</code> y <code>Promise.all</code>.</p>
+</header>
+ 
+          <div class="apis-grid">
+ 
+            <!-- ✅ Sesión 4: PokeAPI – 6 peticiones en paralelo con Promise.all -->
+<div class="api-panel" id="poke-section">
+<div class="api-panel__header">
+<span class="api-badge">PokeAPI</span>
+<h3>Pokémon con <code>Promise.all()</code></h3>
+<p>Carga 6 Pokémon <strong>en paralelo</strong>. Cada tarjeta es una promesa independiente.</p>
+</div>
+<div id="poke-grid" class="poke-grid"></div>
+<button id="poke-next" class="btn btn--outline btn--sm">Cargar siguientes →</button>
+</div>
+ 
+          
+<div class="api-panel">
+<div class="api-panel__header">
+<span class="api-badge">REST Countries</span>
+<h3>Buscar país</h3>
+<p>Fetch GET con <strong>async/await</strong> y <strong>destructuring</strong> del objeto JSON.</p>
+</div>
+<div class="country-search-box">
+<input
+                  type="search"
+                  id="country-search"
+                  placeholder="Escribe un país… ej: Bolivia"
+                  aria-label="Buscar país"
+                />
+</div>
+<div id="country-result" class="country-result"></div>
+</div>
+ 
+          </div>
+</div>
+</section>
+            
         <section id="contacto">
             
             <div class="container contact">
@@ -367,5 +424,6 @@
                 <p class="footer-copy">&copy; 2026 Mi Sitio Web. Todos los derechos reservados.</p>
             </div>
         </footer>
+        <script src="assets/js/app.js"></script>
 </body>
 </html>
