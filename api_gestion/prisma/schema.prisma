@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Usuarios {
+  id        Int      @id @default(autoincrement())
+  nombre    String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+
+  // ✅ AGREGAR: Relaciones inversas
+  proyectos Proyecto[]
+  tareas    Tarea[]
+
+  @@map("usuarios")
+}
+
+model Proyecto {
+  id          Int      @id @default(autoincrement())
+  nombre      String
+  descripcion String?
+  estado      String   @default("activo")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  usuarioId   Int?
+
+  usuario     Usuarios? @relation(fields: [usuarioId], references: [id])
+  tareas      Tarea[]
+
+  @@map("proyectos")
+}
+
+model Tarea {
+  id          Int      @id @default(autoincrement())
+  titulo      String
+  descripcion String?
+  estado      String   @default("pendiente")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  proyectoId  Int?
+  usuarioId   Int?
+
+  proyecto    Proyecto? @relation(fields: [proyectoId], references: [id])
+  usuario     Usuarios? @relation(fields: [usuarioId], references: [id])
+
+  @@map("tareas")
+}
