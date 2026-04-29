@@ -4,7 +4,7 @@ const getProyectos = async (req, res, next) => {
     try {
         const proyectos = await prisma.proyecto.findMany({  
             include: { 
-                usuarios: { select: { nombre: true } }
+                usuario: { select: { nombre: true } } 
             }
         });
         res.json(proyectos);  
@@ -12,7 +12,6 @@ const getProyectos = async (req, res, next) => {
         next(error);
     }
 }
-
 
 const getProyectoById = async (req, res, next) => {
     try {
@@ -22,7 +21,7 @@ const getProyectoById = async (req, res, next) => {
             where: { id: Number(id) },  
             include: { 
                 tareas: true, 
-                usuarios: { select: { nombre: true, email: true, createdAt: true } }
+                usuario: { select: { nombre: true, email: true, createdAt: true } }  
             }, 
         });
 
@@ -40,9 +39,9 @@ const createProyecto = async (req, res, next) => {
     try {
         const { nombre, descripcion, usuarioId } = req.body;
 
-        
+       
         if (usuarioId) {
-            const existingUsuario = await prisma.usuarios.findUnique({
+            const existingUsuario = await prisma.user.findUnique({  
                 where: { id: Number(usuarioId) },  
             });
 
@@ -56,6 +55,9 @@ const createProyecto = async (req, res, next) => {
                 nombre,
                 descripcion,
                 usuarioId: usuarioId ? Number(usuarioId) : undefined,
+            },
+            include: {
+                usuario: true  
             }
         });
 
@@ -70,7 +72,6 @@ const updateProyecto = async (req, res, next) => {
         const { id } = req.params;
         const { nombre, descripcion, usuarioId } = req.body;
 
-        
         const existingProyecto = await prisma.proyecto.findUnique({
             where: { id: Number(id) },  
         });
@@ -81,7 +82,7 @@ const updateProyecto = async (req, res, next) => {
 
         
         if (usuarioId) {
-            const existingUsuario = await prisma.usuarios.findUnique({
+            const existingUsuario = await prisma.user.findUnique({  // ← Cambia "usuarios" por "user"
                 where: { id: Number(usuarioId) },
             });
 
@@ -91,7 +92,6 @@ const updateProyecto = async (req, res, next) => {
         }
 
         const data = {};
-
         if (nombre !== undefined) data.nombre = nombre;
         if (descripcion !== undefined) data.descripcion = descripcion;
         if (usuarioId !== undefined) data.usuarioId = Number(usuarioId);
@@ -128,12 +128,11 @@ const deleteProyecto = async (req, res, next) => {
             where: { id: parseInt(id) },
         });
         
-        res.status(204).send(); 
+        res.json({ message: 'Proyecto eliminado correctamente' });
         
     } catch (error) {
         next(error);
     }
 }
-
 
 module.exports = { getProyectos, getProyectoById, createProyecto, updateProyecto, deleteProyecto };

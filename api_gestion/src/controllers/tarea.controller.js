@@ -10,8 +10,8 @@ const getTareas = async (req, res, next) => {
                 ...(estado && { estado })
             },
             include: {
-                proyecto: { select: { nombre: true } },
-                usuario: { select: { nombre: true } }, 
+                proyecto: { select: { nombre: true } },  
+                usuario: { select: { nombre: true } },   
             }
         });
         res.json(tareas);  
@@ -26,7 +26,10 @@ const getTareaById = async (req, res, next) => {
 
         const tarea = await prisma.tarea.findUnique({
             where: { id: parseInt(id) },
-            include: { proyecto: true, usuario: true }, 
+            include: { 
+                proyecto: true,  
+                usuario: true    
+            }, 
         });
 
         if (!tarea) {
@@ -43,12 +46,30 @@ const createTarea = async (req, res, next) => {
     try {
         const { titulo, descripcion, proyectoId, usuarioId, estado } = req.body;
 
-        
         if (!titulo) {
             return res.status(400).json({ message: 'El título es obligatorio' });
         }
 
         
+        if (proyectoId) {
+            const proyectoExistente = await prisma.proyecto.findUnique({
+                where: { id: Number(proyectoId) }
+            });
+            if (!proyectoExistente) {
+                return res.status(400).json({ message: 'Proyecto no encontrado' });
+            }
+        }
+
+        
+        if (usuarioId) {
+            const usuarioExistente = await prisma.user.findUnique({  // ← Usa el nombre correcto de tu modelo User
+                where: { id: Number(usuarioId) }
+            });
+            if (!usuarioExistente) {
+                return res.status(400).json({ message: 'Usuario no encontrado' });
+            }
+        }
+
         const newTarea = await prisma.tarea.create({
             data: {
                 titulo,
@@ -57,6 +78,10 @@ const createTarea = async (req, res, next) => {
                 usuarioId: usuarioId ? Number(usuarioId) : undefined,
                 estado: estado || "pendiente"
             },
+            include: {
+                proyecto: true,  
+                usuario: true     
+            }
         });
 
         res.status(201).json(newTarea);
@@ -68,7 +93,16 @@ const createTarea = async (req, res, next) => {
 const updateTarea = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const { titulo, descripcion, estado, usuarioId } = req.body;
+        const { titulo, descripcion, estado, usuarioId, proyectoId } = req.body;
+
+        
+        const existingTarea = await prisma.tarea.findUnique({
+            where: { id: Number(id) }
+        });
+
+        if (!existingTarea) {
+            return res.status(404).json({ message: 'Tarea no encontrada' });
+        }
 
         const data = {};
 
@@ -76,20 +110,16 @@ const updateTarea = async (req, res, next) => {
         if (descripcion !== undefined) data.descripcion = descripcion;
         if (estado !== undefined) data.estado = estado;
         if (usuarioId !== undefined) data.usuarioId = Number(usuarioId);
+        if (proyectoId !== undefined) data.proyectoId = Number(proyectoId);
 
         if (Object.keys(data).length === 0) {
             return res.status(400).json({ message: 'No se enviaron campos para actualizar' }); 
         }
 
-        
         const updatedTarea = await prisma.tarea.update({
             where: { id: Number(id) },
             data
         });
-
-        if (!updatedTarea) {
-            return res.status(404).json({ message: 'Tarea no encontrada' });
-        }
 
         res.json(updatedTarea);
 

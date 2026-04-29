@@ -7,6 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  
 }
 
 model Usuarios {
@@ -16,7 +17,7 @@ model Usuarios {
   password  String
   createdAt DateTime @default(now())
 
-  // ✅ AGREGAR: Relaciones inversas
+
   proyectos Proyecto[]
   tareas    Tarea[]
 
